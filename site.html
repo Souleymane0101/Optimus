@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Apprendre le langage C</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f5f5;
+    }
+    header {
+      background: #004080;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      background: #0066cc;
+      padding: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    nav a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    section {
+      padding: 20px;
+      background: white;
+      margin: 10px;
+      border-radius: 8px;
+      box-shadow: 0 0 5px #ccc;
+    }
+    pre {
+      background: #eee;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    .quiz {
+      margin-top: 15px;
+    }
+    .quiz button {
+      margin: 5px;
+      padding: 10px;
+      background: #007BFF;
+      border: none;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .quiz button:hover {
+      background: #0056b3;
+    }
+    .resultat {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>Apprendre le Langage C</h1>
+  <p>Cours, exercices et quiz interactifs</p>
+</header>
+<nav>
+  <a href="#cours">Cours</a>
+  <a href="#exercices">Exercices</a>
+  <a href="#quiz">Quiz</a>
+</nav>
+<section id="cours">
+  <h2>📘 Cours de C</h2>
+  <h3>1. Variables</h3>
+  <p>En langage C, les variables permettent de stocker des données en mémoire. Chaque variable doit être déclarée avec un type, comme <code>int</code> pour les entiers, <code>float</code> pour les nombres à virgule, ou <code>char</code> pour les caractères. Par exemple, <code>int a = 5;</code> crée une variable entière nommée <code>a</code> contenant la valeur 5. Le type détermine la taille en mémoire et les opérations possibles. Il est essentiel d’utiliser le bon type selon le contexte. Une bonne gestion des variables permet une programmation plus claire, efficace et sans erreurs de type.</p>
+  <pre>
+int a = 5;
+float b = 3.14;
+char c = 'A';
+  </pre>
+  <h3>2. Tableaux</h3>
+  <p>Un tableau (array) est une structure qui permet de stocker plusieurs valeurs du même type dans une seule variable. En C, un tableau est déclaré en spécifiant le type des éléments et le nombre d’éléments, par exemple : <code>int tab[5] = {1, 2, 3, 4, 5};</code>. Chaque valeur est accessible par un indice, commençant à 0. On accède à une valeur avec <code>tab[0]</code>, ici égal à 1. Les tableaux sont très utiles pour traiter des listes, stocker des données saisies ou organiser des structures complexes comme des matrices.</p>
+  <pre>
+int tab[5] = {1, 2, 3, 4, 5};
+printf("%d", tab[0]); // Affiche 1
+  </pre>
+  <h3>3. Boucles</h3>
+  <p>Les boucles permettent de répéter un bloc de code tant qu’une condition est vraie. En C, il existe trois types de boucles : <code>for</code>, <code>while</code> et <code>do...while</code>. La boucle <code>for</code> est idéale pour répéter un nombre fixe de fois. La boucle <code>while</code> vérifie une condition avant d’exécuter le code. La boucle <code>do...while</code>, elle, exécute d’abord le code puis teste la condition, garantissant au moins une exécution. Les boucles sont indispensables pour automatiser des tâches comme le parcours de tableaux, les calculs répétitifs ou la lecture de données.</p>
+  <h4>For</h4>
+  <pre>
+for(int i = 0; i < 5; i++) {
+    printf("%d
+", i);
+}
+  </pre>
+  <h4>While</h4>
+  <pre>
+int i = 0;
+while(i < 5) {
+    printf("%d
+", i);
+    i++;
+}
+  </pre>
+  <h4>Do While</h4>
+  <pre>
+int i = 0;
+do {
+    printf("%d
+", i);
+    i++;
+} while(i < 5);
+  </pre>
+  <h3>4. Conditions</h3>
+  <p>Les instructions conditionnelles permettent d’exécuter du code en fonction de certaines situations. En C, la structure <code>if...else</code> permet de tester une condition booléenne. Si la condition est vraie, le bloc <code>if</code> est exécuté, sinon on passe à <code>else if</code>, puis éventuellement au <code>else</code> final. Par exemple, pour déterminer si une personne est majeure, on peut tester <code>if(age &lt; 18)</code>. Les conditions sont essentielles pour gérer les cas différents, réagir à l’entrée utilisateur ou contrôler le déroulement d’un programme.</p>
+  <pre>
+int age = 20;
+if(age < 18) {
+    printf("Mineur");
+} else if(age == 18) {
+    printf("Exactement 18 ans");
+} else {
+    printf("Majeur");
+}
+  </pre>
+  <h3>5. Fonctions</h3>
+  <p>Une fonction est un bloc de code réutilisable qui effectue une tâche précise. En C, une fonction est définie par son type de retour, son nom et ses paramètres, comme : <code>int addition(int a, int b)</code>. Elle peut être appelée depuis <code>main()</code> ou une autre fonction. Les fonctions rendent le code plus structuré, lisible et modulaire. Elles permettent aussi d’éviter la répétition de code. Utiliser des fonctions facilite le débogage, la maintenance, et permet de séparer la logique en unités fonctionnelles claires.</p>
+  <pre>
+int addition(int a, int b) {
+    return a + b;
+}
+
+int main() {
+    int resultat = addition(2, 3);
+    printf("%d", resultat); // Affiche 5
+    return 0;
+}
+  </pre>
+</section>
+<section id="exercices">
+  <h2>💪 Exercices</h2>
+  <ul>
+    <li>1. Écris un programme qui affiche les nombres de 1 à 10.</li>
+    <li>2. Crée une fonction qui calcule la moyenne de trois notes.</li>
+    <li>3. Utilise un tableau pour stocker 5 entiers et les afficher.</li>
+    <li>4. Crée un programme qui demande l’âge et affiche si l’utilisateur est majeur ou mineur.</li>
+    <li>5. Écris un programme qui utilise une boucle do...while pour afficher les chiffres de 10 à 1.</li>
+  </ul>
+</section>
+<section id="quiz">
+  <h2>🧠 Quiz</h2>
+  <div class="quiz">
+    <p><strong>Q1:</strong> Quelle boucle exécute le code au moins une fois même si la condition est fausse ?</p>
+    <button onclick="quiz(1, 'A')">A. for</button>
+    <button onclick="quiz(1, 'B')">B. while</button>
+    <button onclick="quiz(1, 'C')">C. do while</button>
+    <p class="resultat" id="result1"></p>
+  </div>
+  <div class="quiz">
+    <p><strong>Q2:</strong> Que retourne la fonction suivante ? <code>int f(){return 5+2;}</code></p>
+    <button onclick="quiz(2, 'A')">A. 10</button>
+    <button onclick="quiz(2, 'B')">B. 7</button>
+    <button onclick="quiz(2, 'C')">C. 52</button>
+    <p class="resultat" id="result2"></p>
+  </div>
+  <div class="quiz">
+    <p><strong>Q3:</strong> Quelle est la syntaxe correcte pour déclarer un tableau de 10 entiers ?</p>
+    <button onclick="quiz(3, 'A')">A. int tab[10];</button>
+    <button onclick="quiz(3, 'B')">B. int tab = [10];</button>
+    <button onclick="quiz(3, 'C')">C. int tab(10);</button>
+    <p class="resultat" id="result3"></p>
+  </div>
+</section>
+<script>
+  const bonnesReponses = {
+    1: "C",
+    2: "B",
+    3: "A"
+  };
+
+  function quiz(numero, reponse) {
+    const result = document.getElementById("result" + numero);
+    if (reponse === bonnesReponses[numero]) {
+      result.textContent = "✅ Bonne réponse !";
+      result.style.color = "green";
+    } else {
+      result.textContent = "❌ Mauvaise réponse.";
+      result.style.color = "red";
+    }
+  }
+</script>
+</body>
+</html>
